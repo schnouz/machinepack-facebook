@@ -1,7 +1,7 @@
 {
-  "name": "machinepack-facebook",
+  "name": "machinepack-facebook-oauth",
   "version": "1.1.0",
-  "description": "Communicate with Facebook to authenticate, get profile data, friends, likes, and more.",
+  "description": "Communicate with Facebook to authenticate, get profile data, friends, likes, and more. This is a fork of the machinepack-facebook module.",
   "scripts": {
     "test": "mocha -b"
   },
@@ -11,7 +11,7 @@
     "facebook",
     "facebook-api"
   ],
-  "author": "Mike McNeil",
+  "author": "Mike McNeil. Forked By Mario Ortiz.",
   "license": "MIT",
   "devDependencies": {
     "mocha": "~1.19.0",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/irlnathan/machinepack-facebook.git"
+    "url": "git@github.com:mario-ortiz/machinepack-facebook.git"
   },
   "machinepack": {
     "machineDir": "machines",
