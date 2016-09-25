@@ -15,9 +15,10 @@ $ npm install machinepack-facebook-oauth
 
 ## Usage
 
-var Facebook = require('machinepack-facebook-oauth');
+#### Get the URL on facebook.com that a user should visit to allow/deny the specified Facebook Developer app (i.e. your app).
 
-// Get the URL on facebook.com that a user should visit to allow/deny the specified Facebook Developer app (i.e. your app).
+```js
+var Facebook = require('machinepack-facebook-oauth');
 
 Facebook.getLoginUrl({
 appId: '215798311808508',
@@ -33,10 +34,11 @@ success: function (result){
  
 },
 });
+```
+#### Generate a new access token for acting on behalf of a particular Facebook user account.
 
+```js
 var Facebook = require('machinepack-facebook');
-
-// Generate a new access token for acting on behalf of a particular Facebook user account.
 
 Facebook.getAccessToken({
 appId: '215798311808508',
@@ -53,10 +55,12 @@ success: function (result){
  
 },
 });
+```
 
+#### Get information about the Facebook user with the specified access token.
+
+```js
 var Facebook = require('machinepack-facebook');
-
-// Get information about the Facebook user with the specified access token.
 
 Facebook.getUserByAccessToken({
 access_token: 'CA2Emk9XsJUIBAHB9sTF5rOdNmAXTDjiHxZaZC1GYtFZCcdYGVnLYZB7jZCvensIpGc22yEzN6CL6wtQ9LPVXTNkuP6eQoUQ0toEVPrmTTqDpj0POijBpsuZBnx7jrZCHaTw8leiZBn0R8u6gZAYZAuD77cA3tnDMYvHhrl42CnljROeC9maWoa5zbsT2TZBXdL9wEuGQDSxKqRPyajRw3P3HEK',
@@ -72,6 +76,7 @@ success: function (result){
  
 },
 });
+```
 
 ## About  &nbsp; [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/node-machine/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
