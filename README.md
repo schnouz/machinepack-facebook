@@ -18,6 +18,7 @@ $ npm install machinepack-facebook-oauth
 var Facebook = require('machinepack-facebook-oauth');
 
 // Get the URL on facebook.com that a user should visit to allow/deny the specified Facebook Developer app (i.e. your app).
+
 Facebook.getLoginUrl({
 appId: '215798311808508',
 callbackUrl: 'http://localhost:1337/user/facebook/login',
@@ -36,6 +37,7 @@ success: function (result){
 var Facebook = require('machinepack-facebook');
 
 // Generate a new access token for acting on behalf of a particular Facebook user account.
+
 Facebook.getAccessToken({
 appId: '215798311808508',
 appSecret: 'dsg4901g0123456',
@@ -55,6 +57,7 @@ success: function (result){
 var Facebook = require('machinepack-facebook');
 
 // Get information about the Facebook user with the specified access token.
+
 Facebook.getUserByAccessToken({
 access_token: 'CA2Emk9XsJUIBAHB9sTF5rOdNmAXTDjiHxZaZC1GYtFZCcdYGVnLYZB7jZCvensIpGc22yEzN6CL6wtQ9LPVXTNkuP6eQoUQ0toEVPrmTTqDpj0POijBpsuZBnx7jrZCHaTw8leiZBn0R8u6gZAYZAuD77cA3tnDMYvHhrl42CnljROeC9maWoa5zbsT2TZBXdL9wEuGQDSxKqRPyajRw3P3HEK',
 fields: 'email, name, firts_name',
