@@ -21,9 +21,9 @@ $ npm install machinepack-facebook-oauth
 var Facebook = require('machinepack-facebook-oauth');
 
 Facebook.getLoginUrl({
-appId: '215798311808508',
-callbackUrl: 'http://localhost:1337/user/facebook/login',
-permissions: [ 'email' ],
+appId: 'YOUR_APPID',
+callbackUrl: 'YOUR_CALLBACK_URI',
+permissions: [ 'email', 'public_profile', 'user_friends' ],
 }).exec({
 // An unexpected error occurred.
 error: function (err){
@@ -38,13 +38,13 @@ success: function (result){
 #### Generate a new access token for acting on behalf of a particular Facebook user account.
 
 ```js
-var Facebook = require('machinepack-facebook');
+var Facebook = require('machinepack-facebook-oauth');
 
 Facebook.getAccessToken({
-appId: '215798311808508',
-appSecret: 'dsg4901g0123456',
-code: 'AQDvCav5zRSafS795TckAerUV53xzgqRyrcfYX2i_PJFObCvACVRP-V7sfemiMPBh3TWypvagfZ6aoqfwKCNcBxg8XR_skdYUe5tsY9UzX9Z_8q4mRrqaLhwSh5OHj9ORmE4ocyd-neZtdceTZjlmEVeO38UH9QOe_md7h5hy2gMhOS6TL9IBk5Guxg3O6I0WmjpFNPoj6JzWIvG9cgj7RQqxMA2q_8EJxGPTqEbmTqOBqqCIOlvPEPCeIiy21VD9__tuzB0JvgqbVh-U_WW8mjwGBqsfxlNvjYwIxk4zBNAxuRJijkkn0TwyogFpZqIlkY',
-callbackUrl: 'http://localhost:1337/user/facebook/login',
+appId: 'YOUR_APPID',
+appSecret: 'YOUR_APP_SECRET',
+code: 'YOUR_CODE', //code returned by the URL we get on getLoginUrl()
+callbackUrl: 'YOUR_CALLBACK_URI', //same as getLoginUrl()
 }).exec({
 // An unexpected error occurred.
 error: function (err){
@@ -60,10 +60,10 @@ success: function (result){
 #### Get information about the Facebook user with the specified access token.
 
 ```js
-var Facebook = require('machinepack-facebook');
+var Facebook = require('machinepack-facebook-oauth');
 
 Facebook.getUserByAccessToken({
-access_token: 'CA2Emk9XsJUIBAHB9sTF5rOdNmAXTDjiHxZaZC1GYtFZCcdYGVnLYZB7jZCvensIpGc22yEzN6CL6wtQ9LPVXTNkuP6eQoUQ0toEVPrmTTqDpj0POijBpsuZBnx7jrZCHaTw8leiZBn0R8u6gZAYZAuD77cA3tnDMYvHhrl42CnljROeC9maWoa5zbsT2TZBXdL9wEuGQDSxKqRPyajRw3P3HEK',
+access_token: 'YOUR_TOKEN',
 fields: 'email, name, firts_name',
 api_version: 'v2.7'
 }).exec({
@@ -78,7 +78,7 @@ success: function (result){
 });
 ```
 
-## About  &nbsp; [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/node-machine/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## About
 
 This is a [machinepack](http://node-machine.org/machinepacks), an NPM module which exposes a set of related Node.js [machines](http://node-machine.org/spec/machine) according to the [machinepack specification](http://node-machine.org/spec/machinepack).
 Documentation pages for the machines contained in this module (as well as all other NPM-hosted machines for Node.js) are automatically generated and kept up-to-date on the <a href="http://node-machine.org" title="Public machine registry for Node.js">public registry</a>.
