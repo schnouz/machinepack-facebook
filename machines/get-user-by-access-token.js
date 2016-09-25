@@ -5,10 +5,15 @@ module.exports = {
   cacheable: true,
 
   inputs: {
-    accessToken: {
+    access_token: {
       example: 'CA2Emk9XsJUIBAHB9sTF5rOdNmAXTDjiHxZaZC1GYtFZCcdYGVnLYZB7jZCvensIpGc22yEzN6CL6wtQ9LPVXTNkuP6eQoUQ0toEVPrmTTqDpj0POijBpsuZBnx7jrZCHaTw8leiZBn0R8u6gZAYZAuD77cA3tnDMYvHhrl42CnljROeC9maWoa5zbsT2TZBXdL9wEuGQDSxKqRPyajRw3P3HEK',
       description: 'The access token which allows you to do things and get information on behalf of a particular Facebook user.',
       required: true
+    },
+    fields: {
+      example: 'email, first_name, last_name, gender, picture, link, locale, name',
+      description: 'The fields to be requested to the API. Needs to be a comma separated string. If not send, will return only name and id',
+      required: false
     }
   },
 
@@ -40,14 +45,14 @@ module.exports = {
   fn: function (inputs,exits) {
 
     var doJSONRequest = require('../lib/do-request');
-
+    var version = inputs.api_version || 'v2.5';
+    var url = '/' + version + '/me';
+    delete inputs.api_version;
     // GET projects/ and send the api token as a header
     doJSONRequest({
       method: 'get',
-      url: '/v2.1/me',
-      data: {
-        'access_token': inputs.accessToken
-      },
+      url: url,
+      data: inputs,
       headers: {},
     }, function (err, responseBody) {
       if (err) { return exits.error(err); }
