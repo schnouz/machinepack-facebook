@@ -69,10 +69,10 @@ module.exports = {
       try {
 
         return exits.success({
-          token: responseBody.match(/access_token=([a-z0-9]+)[^a-z0-9]{0,}/i)[1],
+          token: responseBody.access_token,
           expires: (function getExpirationDateAsISOString (){
             var now = new Date();
-            var secondsFromNowToExpiry = +(responseBody.match(/expires=([0-9]+)[^0-9]{0,}/i)[1]);
+            var secondsFromNowToExpiry = +responseBody.expires_in;
             var expirationDate = new Date( (now.getTime() + (secondsFromNowToExpiry*1000)) );
             return expirationDate.toJSON();
           })()
